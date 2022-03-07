@@ -1,22 +1,43 @@
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Files</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Files</title>
 </head>
-<body >
-    <h1 style="color: rgb(7, 156, 182);">Logged In ... Your files are here .... Be safe or get hacked .... 🤷‍♂️✨ </h1>
+<body>
+<h1 style="color: rgb(7, 156, 182);">Logged In ... Your files are here .... Be safe or get hacked .... 🤷‍♂️✨ </h1>
    
-    <h2 style="color: blue;"> Files from your bucket : </h2>
-    <h3 style="color: red;"> 1. {{file1}}</h3>
-    <h3 style="color: red;"> 2. {{file2}}</h3>
-    <h3 style="color: red;"> 3. {{file3}}</h3>
-    <h3 style="color: red;"> 4. {{file4}}</h3>
-    <h3 style="color: red;"> 5. {{file5}}</h3>
-    <h3><a href="https://testingitforsaqeebbhai.auth.ap-south-1.amazoncognito.com/logout?client_id=46s231qatgv9243u2kt3>
-  
+<h2 style="color: blue;"> Files from your bucket : </h2>
+<ol>
+<!-- For loop logic of jinja template -->
+{%for i in files%}
+
+  <!--https://www.geeksforgeeks.org/python-using-for-loop-in-flask/-->
+
+	<h3 style="color: rgb(110, 9, 94);"><li>{{i}}</li></h3>
+{%endfor%}
+
+</ol>
+
+<h3><a href="https://testingitforsaqeebbhai.auth.ap-south-1.amazoncognito.com/logout?client_id=46s231qatgv9243u2kt361patd">
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% for item in files %}
+    <p>{{ item}}</p>
+{% endfor %} -->
+
+    
