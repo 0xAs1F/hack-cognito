@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>LoggedIn</title>
+</head>
+<body onload=getToken() >
+    
+    <h1>Get your Temporary Access keys : --->> <a href="/accesskey">keys</a></h1>
+    
+    <h1>Get your Files : --->>> <a href="/files">Files</a></h1>
+
+<script>
+    
+    function getToken() {
+    var idtoken = window.location.href;
+    var idtoken1 = idtoken.split("=")[1];
+    var identityToken = idtoken1.split("&")[0];
+    const dict_send ={ id_token : identityToken};
+    console.log(dict_send);
+    $.ajax({
+        url:"/id",
+        type:"POST",
+        ContentType: "application/json; charset=utf-8",
+        dataType: "json" ,
+        data:JSON.stringify(dict_send)});
+    };
+
+    
+
+    //window.location.replace("http://localhost:5000/redirect")
+     
+</script>
+</body>
+</html>
