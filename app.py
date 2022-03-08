@@ -12,7 +12,7 @@ secret_key = ""
 access_key= ""
 @app.route('/')
 def index():
-    return render_template('./index.html')
+    return render_template('index.html')
 
 @app.route('/id', methods=['POST'])
 def getid():
@@ -34,7 +34,7 @@ def accesskey():
     key1=keys[0]
     key2=keys[1]
     key3=keys[2]
-    return render_template('./accesskeys.html', key1 = key1 ,key2 = key2 ,key3 = key3)
+    return render_template('accesskeys.html', key1 = key1 ,key2 = key2 ,key3 = key3)
 
 @app.route('/files')
 def buck():
@@ -51,7 +51,7 @@ def buck():
         total.append(files)
     
     # file1 = file1,file2 = file2,file3 = file3,file4 = file4,file5 = file5
-    return render_template('./files.html', files=total )
+    return render_template('files.html', files=total )
 
 @app.route('/upload')
 def home():
@@ -65,7 +65,7 @@ def upload():
 
 @app.route('/loggedout')
 def loggedout():
-    return render_template('./loggedout.html')
+    return render_template('loggedout.html')
 
 def getbuckets(token):
     client = boto3.client('cognito-identity' , region_name="ap-south-1")
