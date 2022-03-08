@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>LoggedIn</title>
 </head>
-<body onload=getToken() >
+<body >
     
     <h1>Get your Temporary Access keys : --->> <a href="/accesskey">keys</a></h1>
     
@@ -31,10 +31,10 @@
         data:JSON.stringify(dict_send)});
     };
 
+    getToken();
     
-
-    //window.location.replace("http://localhost:5000/redirect")
-     
+    
+    
 </script>
 </body>
 </html>
