@@ -21,21 +21,21 @@
   </style>
 </head>
 <body>
-<h1 style="color: rgb(7, 156, 182);">Logged In ... Your files are here .... Be safe or get hacked .... 🤷‍♂️✨ </h1>
+<h1 style="color: rgb(59, 221, 250);">Logged In ... Your files are here .... Be safe or get hacked .... 🤷‍♂️✨ </h1>
    
-<h2 style="color: blue;"> Files from your bucket : </h2>
+<h2 style="color: rgb(230, 255, 5);"> Files from your bucket : </h2>
 <ol>
 <!-- For loop logic of jinja template -->
 {%for i in files%}
 
   <!--https://www.geeksforgeeks.org/python-using-for-loop-in-flask/-->
 
-	<h3 style="color: rgb(110, 9, 94);"><li>{{i}}</li></h3>
+	<h3 style="color: rgb(240, 157, 226);"><li>{{i}}</li></h3>
 {%endfor%}
 
 </ol>
 
-<h3 style="color: rgb(20, 13, 112);"><a href="/loggedin"> Go Back</a></h3>
+<h3 style="color: rgb(137, 129, 243);"><a href="/loggedin"> Go Back</a></h3>
 
 <h3><a href="https://testingitforsaqeebbhai.auth.ap-south-1.amazoncognito.com/logout?client_id=46s231qatgv9243u2kt361patd&logout_uri=https://hackcognito.herokuapp.com/loggedout">Log Out</a></h3>
    
