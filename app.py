@@ -68,18 +68,18 @@ def loggedout():
     return render_template('loggedout.html')
 
 def getbuckets(token):
-    client = boto3.client('cognito-identity' , region_name="ap-south-1")
-
-    response=client.get_id( IdentityPoolId='ap-south-1:ddd186ee-2b93-4023-bebd-0d7c4d15c819', Logins ={
-        "cognito-idp.ap-south-1.amazonaws.com/ap-south-1_leXbHfpyb":token
+    client = boto3.client('cognito-identity' , region_name="us-east-1")
+    # e.g IdentityPoolId=us-east-1:sss186ee-2b93-4023-bkod-0d7c4d15c819
+    response=client.get_id( IdentityPoolId='<IdentityPoolId>', Logins ={
+        "cognito-idp.us-east-1.amazonaws.com/us-east-1_changeIt":token
         })
 
     identityId = response["IdentityId"]
 
 
-    client = boto3.client('cognito-identity' , region_name="ap-south-1")
+    client = boto3.client('cognito-identity' , region_name="us-east-1")
     credentials = client.get_credentials_for_identity(IdentityId=identityId, Logins ={
-        "cognito-idp.ap-south-1.amazonaws.com/ap-south-1_leXbHfpyb":token
+        "cognito-idp.us-east-1.amazonaws.com/us-east-1_changeIt":token
     }) 
 
     global session_token,secret_key,access_key
@@ -97,7 +97,7 @@ def getbuckets(token):
 
     s3 = session.resource('s3')
 
-    testBucket = s3.Bucket('testingforcognito')
+    testBucket = s3.Bucket('<your-test-bucket-name>')
 
     buckets = list()
     #print("!!! 🎇✨🎇 Congratulations We Did It 🎇✨🎇 !!! ")
@@ -124,7 +124,7 @@ def uploading():
                 filename = secure_filename(img.filename)
                 img.save(filename)
                 s3.upload_file(
-                    Bucket = "testingforcognito",
+                    Bucket = "<your-test-bucket-name>",
                     Filename=filename,
                     Key = filename
                 )
